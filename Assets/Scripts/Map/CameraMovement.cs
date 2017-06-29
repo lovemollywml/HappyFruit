@@ -92,4 +92,10 @@ public class CameraMovement : MonoBehaviour{
         DataLoader.enableclick = false;
         fade.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
+    public void CameraPosUpdate()
+    {
+        transform.position = new Vector3(transform.position.x, -(container.anchoredPosition.y - 4740f) * distance, transform.position.z);
+        if (setstate)
+            movement = true;
+    }
 }
