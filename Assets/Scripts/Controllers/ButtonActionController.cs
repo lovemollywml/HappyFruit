@@ -27,6 +27,10 @@ public class ButtonActionController : MonoBehaviour {
     {
         Debug.Log("More，敬请期待");
     }
+    public void Rate()
+    {
+        Debug.Log("暂时没什么卵用");
+    }
     public void SelectMap(int mode)
     {
         SoundController.Sound.Click();
