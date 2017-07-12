@@ -43,6 +43,7 @@ public class ButtonActionController : MonoBehaviour {
             HomeScene();
         }
 
+        CameraMovement.StarPointMoveIndex = -1;
     }
     public void HomeScene()
     {

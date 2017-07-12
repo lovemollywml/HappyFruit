@@ -98,4 +98,8 @@ public class CameraMovement : MonoBehaviour{
         if (setstate)
             movement = true;
     }
+    public void ArcadeScene()
+    {
+        ButtonActionController.Click.ArcadeScene(map);
+    }
 }

@@ -5,6 +5,32 @@ using UnityEngine;
 public class Map : MonoBehaviour {
 
     public Player map;
+
+    void OnMouseDown()
+    {
+        CameraMovement.setstate = true;
+        CameraMovement.movement = false;
+        if (DataLoader.enableclick)
+            transform.GetChild(0).transform.localScale = new Vector3(0.8f, 0.75f, 1);
+    }
+
+    void OnMouseUp()
+    {
+        CameraMovement.setstate = false;
+        if (DataLoader.enableclick && !CameraMovement.movement)
+        {
+            SoundController.Sound.Click();
+            transform.GetChild(0).transform.localScale = new Vector3(0.8f, 0.8f, 1);
+            PlayerPrefs.DeleteKey("LASTPOS");
+            PlayerPrefs.DeleteKey("LASTPOSX");
+            PlayerPrefs.SetFloat("LASTPOS", transform.position.y);
+            PlayerPrefs.SetFloat("LASTPOSX",transform.position.x);
+            CameraMovement.mcamera.StarPoint.transform.position=transform.position+new Vector3(0,0,-0.2f);
+            CameraMovement.mcamera.PopUpShow(map);
+        }
+    }
+
+
     public void SetMapInfo()
     {
         SpriteRenderer render = transform.GetChild(0).GetComponent<SpriteRenderer>();
